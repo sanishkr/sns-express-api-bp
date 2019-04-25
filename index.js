@@ -1,5 +1,7 @@
 const express = require('express');
-const config = require('./config/index');
+const {
+  config
+} = require('./config/index');
 const router = require('./routes/index');
 const bodyParser = require('body-parser');
 // logger = require('morgan'),
@@ -9,9 +11,11 @@ const bodyParser = require('body-parser');
 const app = express();
 app.set('host', config.app.host);
 app.set('port', config.app.port || '3000');
-app.use(bodyParser.urlencoded({ extended: false })); // Parses urlencoded bodies
+app.use(bodyParser.urlencoded({
+  extended: false
+})); // Parses urlencoded bodies
 app.use(bodyParser.json()); // Send JSON responses
-// app.use(logger('dev')); // Log requests to API using morgan
+// app.use(logger('stage')); // Log requests to API using morgan
 
 // Enable CORS from client-side
 app.use((req, res, next) => {
