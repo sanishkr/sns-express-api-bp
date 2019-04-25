@@ -1,17 +1,6 @@
-const express = require('express');
-const sampleController = require('../controllers/index');
+const {apiRoutesV1} = require('./v1/apiroutes');
 
 module.exports = function (app) {
-    // Initializing route groups
-    const apiRoutes = express.Router(),
-        sampleRoute = express.Router();
-
-    apiRoutes.use('/route1', sampleRoute);
-
-    sampleRoute.get('/:param1', sampleController.sample);
-    sampleRoute.post('/:param1', sampleController.sample);
-    sampleRoute.put('/:param1', sampleController.sample);
-    sampleRoute.delete('/:param1', sampleController.sample);
-
-    app.use('/v1', apiRoutes);
+    // Initializing route versions
+    app.use('/v1', apiRoutesV1);
 }
