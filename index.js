@@ -5,9 +5,9 @@ const {
 const router = require('./routes/index');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-var path = require('path')
-var fs = require('fs')
-// passport    = require('passport');
+var path = require('path');
+var fs = require('fs');
+// const passport    = require('passport');
 // console.log({config});
 
 const app = express();
