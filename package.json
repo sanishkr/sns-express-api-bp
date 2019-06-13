@@ -14,7 +14,14 @@
     "type": "git",
     "url": "git+https://github.com/sanishkr/sns-express-api-bp.git"
   },
-  "keywords": [],
+  "keywords": [
+    "express",
+    "nodejs",
+    "boilerplate",
+    "api",
+    "sanish",
+    "sns"
+  ],
   "author": "sns",
   "license": "ISC",
   "homepage": "https://github.com/sanishkr/sns-express-api-bp#readme",
