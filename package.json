@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node NODE_ENV=prod index.js",
+    "start": "NODE_ENV=prod start index.js",
     "start:local": "cross-env NODE_ENV=local nodemon index.js",
     "start:stage": "cross-env NODE_ENV=stage node index.js",
     "start:prod": "cross-env NODE_ENV=prod pm2 start index.js",
