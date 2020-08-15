@@ -28,7 +28,7 @@ if (fs.existsSync(logPath)) {
     fs.mkdirSync(path.dirname(logPath));
     fs.writeFileSync(logPath, {flags:'wx'});
     console.log('access.log created!');
-} // Log requests to API using morgan only which are 4XX or 5XX
+} // Log requests to API using morgan only which are 4XX or 5XX and not in prod env
 
 // Enable CORS from client-side
 app.use((req, res, next) => {
