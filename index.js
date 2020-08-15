@@ -17,12 +17,12 @@ app.use(bodyParser.urlencoded({
     extended: false
 })); // Parses urlencoded bodies
 app.use(bodyParser.json()); // Send JSON responses
-app.use(logger('combined', {
-    skip: function (req, res) { return res.statusCode < 400 },
-    stream: fs.createWriteStream(path.join(__dirname+'/logs/', 'access.log'), {
-        flags: 'a'
-    })
-})) // Log requests to API using morgan only which are 4XX or 5XX
+// app.use(logger('combined', {
+//     skip: function (req, res) { return res.statusCode < 400 },
+//     stream: fs.createWriteStream(path.join(__dirname+'/logs/', 'access.log'), {
+//         flags: 'a'
+//     })
+// })) // Log requests to API using morgan only which are 4XX or 5XX
 
 // Enable CORS from client-side
 app.use((req, res, next) => {
