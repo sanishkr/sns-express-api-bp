@@ -9,6 +9,7 @@ var path = require('path');
 var fs = require('fs');
 // const passport    = require('passport');
 // console.log({config});
+var logPath = path.join(__dirname+'/logs/', 'access.log');
 
 const app = express();
 app.set('host', config.app.host);
@@ -17,12 +18,17 @@ app.use(bodyParser.urlencoded({
     extended: false
 })); // Parses urlencoded bodies
 app.use(bodyParser.json()); // Send JSON responses
-app.use(logger('combined', {
-    skip: function (req, res) { return process.env.NODE_ENV === 'prod' ? true : (res.statusCode < 400) },
-    stream: fs.createWriteStream(path.join(__dirname+'/logs/', 'access.log'), {
-        flags: 'a'
-    })
-})) // Log requests to API using morgan only which are 4XX or 5XX
+if (fs.existsSync(logPath)) {
+    app.use(logger('combined', {
+        skip: function (req, res) { return process.env.NODE_ENV === 'prod' ? true : (res.statusCode < 400) },
+        stream: fs.createWriteStream(logPath, {flags:'a'})
+    }));
+    console.log('access.log exists!');
+} else {
+    fs.mkdirSync(path.dirname(logPath));
+    fs.writeFileSync(logPath, {flags:'wx'});
+    console.log('access.log created!');
+} // Log requests to API using morgan only which are 4XX or 5XX
 
 // Enable CORS from client-side
 app.use((req, res, next) => {
