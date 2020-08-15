@@ -4,7 +4,7 @@ const env = process.env.NODE_ENV;
 const prod = {
     app: {
         host: process.env.PROD_APP_HOST || 'localhost',
-        port: parseInt(process.env.PROD_APP_PORT) || 3000
+        port: parseInt(process.env.PORT) || 3000
     },
     db: {
         host: process.env.PROD_DB_HOST || 'localhost',
