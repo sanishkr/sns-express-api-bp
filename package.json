@@ -27,7 +27,7 @@
   "homepage": "https://github.com/sanishkr/sns-express-api-bp#readme",
   "dependencies": {
     "dotenv": "^7.0.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "lodash": "^4.17.11",
     "morgan": "^1.9.1",
     "pm2": "^3.4.1"
